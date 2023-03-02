@@ -1,24 +1,24 @@
 DROP TABLE IF EXISTS posts;
+
 CREATE TABLE posts (
   id INT NOT NULL AUTO_INCREMENT,
   message VARCHAR(140),
   likes INT,
+  area VARCHAR(20),
   PRIMARY KEY (id)
 );
 
-INSERT INTO posts (message, likes) VALUES
-  ('Thanks', 12),
-  ('Merci', 4),
-  ('Arigato', 4),
-  ('Gracias', 15),
-  ('Danke', 8);
-  
--- ALTER TABLE posts ADD author VARCHAR(255);
--- ALTER TABLE posts ADD author VARCHAR(255) AFTER id;
--- ALTER TABLE posts ADD author VARCHAR(255) FIRST;
--- ALTER TABLE posts DROP message;
--- ALTER TABLE posts CHANGE likes points INT;
-DROP TABLE IF EXISTS messages;
-ALTER TABLE posts RENAME messages;
-SHOW TABLES;
--- DESC posts;
+LOAD DATA LOCAL INFILE 'data.csv' INTO TABLE posts
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\n'
+  IGNORE 1 LINES
+  (message, likes, area);
+
+-- SHOW INDEX FROM posts\G
+-- EXPLAIN SELECT * FROM posts WHERE id = 30\G
+
+ALTER TABLE posts ADD INDEX index_area(area);
+-- SHOW INDEX FROM posts\G
+-- EXPLAIN SELECT * FROM posts WHERE area = 'Kyoto'\G
+ALTER TABLE posts DROP INDEX index_area;
+SHOW INDEX FROM posts\G
