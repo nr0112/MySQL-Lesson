@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE posts (
+  id INT NOT NULL AUTO_INCREMENT,
+  message VARCHAR(140),
+  likes INT,
+  area VARCHAR(20),
+  PRIMARY KEY (id)
+);
+
+LOAD DATA LOCAL INFILE 'data.csv' INTO TABLE posts
+  FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\n'
+  IGNORE 1 LINES
+  (message, likes, area);
+
+SELECT * FROM posts;
