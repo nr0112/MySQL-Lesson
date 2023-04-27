@@ -1,2 +1,62 @@
 # MySQL-Lesson
-23卒エンジニア内定者研修
+
+-- SELECT VERSION();
+-- SELECT 5 + 5;
+-- TABLE=表
+-- RECORD＝1行1行のデータ
+-- COLUMN＝列
+/*
+コメントアウト
+*/
+-- CREATE TABLE posts で作る
+-- INSERT INFOでデータ挿入
+-- VALUESでどういうものを入れるのか
+-- 自分でつけるテーブル名、カラム名は小文字
+-- 整数　TINYINT   -128~127(符号付き) 
+--         INT  -21億~21億(符号付き)
+--         BIGINT 　 -922京~+922京(符号付き)
+-- -- 実数 DECIMAL  0~255　固定小数点
+--         FLOAT 0~42億　浮動小数点　
+--         DOUBLE　0~1422京　浮動小数点（高精度）
+-- -- 文字列 CHAR 固定
+-- 　　　　　　VARCHAR　バラバラ
+-- 　　　　　　 TEXT それ以外
+-- 　　　　　　ENUM  特定の文字から一つ
+-- 　        SET　特定の文字列から複数
+-- -- 真偽値 BOOL　TRUE - FALSE
+-- 日時 DATE TIME DATETIME
+
+  -- likes INT NOT NULL エラーで弾く
+--   likes INT DEFAULT 0　デフォルト値
+--  likes INT CHECK (likes >= 0 AND likes <= 200)　数の指定
+-- PRIMARY KEY(id)レコードを一位に識別できる主キー！！
+-- > >= < <= -- = != <>  ~以上とかのこと！！
+-- AND なおかつ　BETWEEN（NOT BETWEEN)
+-- OR  もしくは　IN（NOT IN)
+-- %: 0文字以上の任意の文字　前方一致
+-- _: 任意の1文字
+-- BINARY 大文字小文字区別
+-- \% % を入ったレコードだけが抽出
+-- \_ _ が入ったレコードだけを抽出
+-- ORDER BY 小さい順　-- DESC　逆の場合
+-- OFFSET　先頭の〜を除外
+-- + - * / %四則演算
+-- AS 別名
+-- FLOOR() 端数の切り捨て
+-- CEIL() 端数の切り上げ
+-- ROUND() 四捨五入
+-- SUBSTRING()　文字列の一部を取り出す
+-- CONCAT()　　文字列の連結
+-- LENGTH()　　文字数を求めれる　英語の場合
+-- CHAR_LENGTH()　日本語の場合
+-- DATE_FORMAT()　好きなフォーマット
+-- DATE_ADD() 日付の計算　・INTERVALで7日後
+-- DATEDIFF()　現在の日付よりどれくらい前か知りたい
+-- WHERE　指定
+-- update 更新
+-- DELETE　削除
+-- TRUNCATE TABLE　テーブルごと消して再作成
+-- ALTER TABLE ... ADD ... 
+-- ALTER TABLE ... DROP ... //後から削除
+-- ALTER TABLE ... CHANGE ...　//変更
+-- ALTER TABLE ... RENAME ...//テーブル名の変更
